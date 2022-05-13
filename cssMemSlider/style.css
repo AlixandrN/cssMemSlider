@@ -42,7 +42,8 @@ main {
 }
 .item {
     /* width: 100%; height: 100%; */
-    /* width: 200px; height: 300px; */
+    /* width: 200px; */
+    /* height: 500px; */
     display: none; 
 }
 .item.active {
@@ -63,12 +64,30 @@ main {
 
 /* TEXT and DOTS */
 .content {
-    background-color: darkslateblue;
+    /* background-color: darkslateblue; */
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 5px 20px;
+}
+.text-wrapper {
+    display: flex;
+    font-size: 23px;
+    overflow: hidden;
+}
+.text-content {
+    width: 100px;
+    display: flex;
+    position: relative; 
+}
+.text {
+    display: none; 
+    min-width: 100px;
+    text-align: center;
+}
+.text.active {
+    display: block;
 }
 
 .dots-wrapper {
@@ -87,3 +106,13 @@ main {
 .dot.active {
     background-color: black;
 }
+@keyframes move-text-right {
+    from {left: 0px;}
+    to {left: -100px;}
+}
+@keyframes move-text-left {
+    from {left: -100px;}
+    to {left: 0px;}
+}
+.transition-text-right {animation-name: move-text-right; animation-duration: .8s;}
+.transition-text-left {animation-name: move-text-left; animation-duration: .8s;}
