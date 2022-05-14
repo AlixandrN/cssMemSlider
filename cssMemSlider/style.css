@@ -70,6 +70,7 @@ main {
 }
 .text-wrapper {
     display: flex;
+    font-family: Georgia;
     font-size: 23px;
     overflow: hidden;
 }
@@ -148,4 +149,4 @@ main {
     }
     main {padding: 0;}
     .display {width: 100vw; height: 100vh;}
-}
+};
