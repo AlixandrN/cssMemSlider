@@ -1,0 +1,152 @@
+/* Slider style */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main {
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.display {
+    width: calc(100vw - 20px);
+    height: calc(100vh - 20px);
+    background-color: darkslategrey;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    padding: 20px;
+}
+.slider-wrapper {
+    width: 600px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    display: flex;
+    background-color: rgb(206, 206, 157);
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.slider-content {
+    display: flex;
+    position: relative; 
+}
+.item {
+    display: none; 
+}
+.item.active {
+    display: block;
+}
+.card-img {
+    width: 600px; height: 900px;
+    display: block;
+}
+
+@keyframes move-right {
+    from {left: 0px;}
+    to {left: -600px;}
+}
+@keyframes move-left {
+    from {left: -600px;}
+    to {left: 0px;}
+}
+.transition-right {animation-name: move-right; animation-duration: .8s;}
+.transition-left {animation-name: move-left; animation-duration: .8s;}
+
+/* TEXT and DOTS */
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px 20px;
+}
+.text-wrapper {
+    display: flex;
+    font-family: Georgia;
+    font-size: 23px;
+    overflow: hidden;
+}
+.text-content {
+    color: rgb(77, 188, 207);
+    width: 100px;
+    display: flex;
+    position: relative; 
+}
+.text {
+    display: none; 
+    min-width: 100px;
+    text-align: center;
+}
+.text.active {
+    display: block;
+}
+
+.dots-wrapper {
+    display: flex;
+    justify-content: center;
+    column-gap: 8px;
+}
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid rgb(77, 188, 207);
+    background-color: rgb(77, 188, 207);
+    cursor: pointer;
+} 
+.dot.active {
+    background-color: rgba(0, 0, 0, 0);
+    border: 2px solid rgb(77, 188, 207);
+}
+.under-mouse {
+    border: 2px solid white;
+}
+.under-mouse-other {
+    border: 2px solid white;
+    background-color: white;
+}
+.dot:hover {
+    border: 2px solid white;
+}
+.dot:active {
+    border: 2px solid lawngreen;
+    background-color: lawngreen;
+}
+@keyframes move-text-right {
+    from {left: 0px;}
+    to {left: -100px;}
+}
+@keyframes move-text-left {
+    from {left: -100px;}
+    to {left: 0px;}
+}
+.transition-text-right {animation-name: move-text-right; animation-duration: .8s;}
+.transition-text-left {animation-name: move-text-left; animation-duration: .8s;}
+
+/* ADAPTIVE DESIGN */
+@media (max-width: 767px) {
+    .card-img {width: 300px; height: 450px;}
+    .slider-wrapper {width: 300px;}   
+    @keyframes move-right {
+        from {left: 0px;}
+        to {left: -300px;}
+    }
+    @keyframes move-left {
+        from {left: -300px;}
+        to {left: 0px;}
+    }
+    .content {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    main {padding: 0;}
+    .display {width: 100vw; height: 100vh;}
+};
