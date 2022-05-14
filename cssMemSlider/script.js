@@ -2,14 +2,11 @@
 
 const CAROUSEL = document.querySelector('.slider-content')
 const TEXTCAROUSEL = document.querySelector('.text-content')
-
 const ITEMS = document.querySelectorAll('.item')
 const DOTS = document.querySelectorAll('.dot')
 const dotsWrapper = document.querySelector('.dots-wrapper') 
 const textItems = document.querySelectorAll('.text')
-
 let index = Number(0)
-
 
 //SLIDES
 const activeSlide = n => {
