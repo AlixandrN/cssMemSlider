@@ -20,6 +20,7 @@ const activeSlide = n => {
 const activeDot = n => {
     for(let dot of DOTS) {dot.classList.remove('active');}
     DOTS[n].classList.add('active');
+    cleanDots();
 };
 //TEXT
 const activeText = n => {
@@ -68,4 +69,23 @@ const moveRight = () => {
     CAROUSEL.classList.add('transition-right')
     TEXTCAROUSEL.classList.add('transition-text-right')
     // dotsWrapper.removeEventListener('click', movement)
+};
+
+DOTS.forEach(el => {
+    el.addEventListener('mouseenter', ()=> {
+        el.classList.add('under-mouse')
+        if (el.id != index) {el.classList.add('under-mouse-other')}
+    });
+    el.addEventListener('mouseleave', ()=> {
+        el.classList.remove('under-mouse-other');
+        el.classList.remove('under-mouse');
+    });
+})
+
+const cleanDots = () => {
+    DOTS.forEach(el => {
+        if (el.id != index) {
+            el.classList.remove('under-mouse-other')
+        }
+    })
 };
